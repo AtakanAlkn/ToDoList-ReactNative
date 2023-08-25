@@ -1,0 +1,21 @@
+import React from 'react';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import styles from './ForgotStyle';
+import CustomHeader from '../components/CustomHeader/CustomHeader';
+import CustomInput from '../components/CustomInput/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
+
+const Forgot = props => {
+  return (
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <CustomHeader />
+      <View style={{marginTop: 135}}>
+        <CustomInput placeholder="Password" ıcon="true" />
+        <CustomInput placeholder="Confirm Password" ıcon="true" />
+        <CustomButton title="CHANGE PASSWORD" />
+      </View>
+    </ScrollView>
+  );
+};
+
+export default Forgot;
