@@ -41,7 +41,11 @@ const Router = () => {
           name="Detail"
           component={Detail}
           options={{
-            header: () => <CustomDetailHeaderBar />,
+            header: ({navigation}) => (
+              <CustomDetailHeaderBar
+                onBackIcon={() => navigation.navigate('Home')}
+              />
+            ),
           }}
         />
       </Stack.Navigator>
