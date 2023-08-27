@@ -20,7 +20,24 @@ Welcome to **ToDoList App**, a React Native application that helps you stay orga
     <p align="center"><em>Add ToDo Screen</em></p>
     <img src="images/h2.jpeg" alt="Add ToDo Screen" width="300">
   </div>
+   <div>
+    <p align="center"><em>Detail Screen</em></p>
+    <img src="images/h4.jpeg" alt="Detail Screen" width="300">
+  </div>
+   <div>
+    <p align="center"><em>Detail Delete</em></p>
+    <img src="images/h5.jpeg" alt="Detail Delete" width="300">
+  </div>
+   <div>
+    <p align="center"><em>Preview</em></p>
+    <img src="images/m1.gif" alt="GİF" width="300">
+  </div>
+  <div>
+    <p align="center"><em>Preview</em></p>
+    <img src="images/m3.gif" alt="GİF" width="300">
+  </div>
 </div>
+
 ## Design Notice
 
 The app's design was created using Figma, a collaborative design tool that enables designers and developers to work together seamlessly. 
