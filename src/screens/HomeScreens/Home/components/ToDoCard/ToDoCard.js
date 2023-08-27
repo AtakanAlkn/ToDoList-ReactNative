@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import theme from '../../../../../assets/theme/theme';
 
 const ToDoCard = ({item, onNext}) => {
@@ -7,19 +13,56 @@ const ToDoCard = ({item, onNext}) => {
     return item.id % 2 === 0 ? true : false;
   };
 
+  const getMonthName = month => {
+    switch (month) {
+      case 1:
+        return 'January';
+      case 2:
+        return 'February';
+      case 3:
+        return 'March';
+      case 4:
+        return 'April';
+      case 5:
+        return 'May';
+      case 6:
+        return 'June';
+      case 7:
+        return 'July';
+      case 8:
+        return 'August';
+      case 9:
+        return 'September';
+      case 10:
+        return 'October';
+      case 11:
+        return 'November';
+      case 12:
+        return 'December';
+      default:
+        return 'Invalid Month';
+    }
+  };
+
   return (
-    <TouchableOpacity
-      onPress={onNext}
-      style={{
-        ...styles.container,
-        backgroundColor: colors() ? theme.primaryColor : theme.secondaryColor,
-      }}>
-      <Text style={styles.title}>{item.text}</Text>
-      <Text numberOfLines={2} style={styles.description}>
-        {item.description}
-      </Text>
-      <Text style={styles.date}>{item.id}</Text>
-    </TouchableOpacity>
+    <TouchableWithoutFeedback onPress={onNext}>
+      <View
+        style={{
+          ...styles.container,
+          backgroundColor: colors() ? theme.primaryColor : theme.secondaryColor,
+        }}>
+        <Text style={styles.title}>{item.text}</Text>
+        <Text numberOfLines={2} style={styles.description}>
+          {item.description}
+        </Text>
+        {item.date ? (
+          <Text style={styles.date}>
+            Created at {item.date.day} {getMonthName(item.date.month)}{' '}
+            {item.date.year}
+          </Text>
+        ) : null}
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -30,6 +73,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 6,
     borderRadius: 12,
+    minHeight: 100,
   },
   title: {
     fontSize: 16,

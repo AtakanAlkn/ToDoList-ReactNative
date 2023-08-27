@@ -11,13 +11,14 @@ const SignIn = props => {
       <CustomHeader />
       <View style={{marginTop: 98}}>
         <CustomInput placeholder="Email" />
+        <View style={{marginTop: 16}}></View>
         <CustomInput placeholder="Password" ıcon="true" />
+        <View style={{marginTop: 16}}></View>
         <View style={{alignItems: 'flex-end'}}>
           <TouchableOpacity onPress={() => props.navigation.navigate('Forgat')}>
             <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>
-
         <CustomButton
           title="SIGN IN"
           onPress={() => props.navigation.navigate('Home')}

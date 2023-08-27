@@ -31,11 +31,17 @@ const SignUp = props => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <CustomHeader size={size} />
+      <View style={{marginTop: 9}}></View>
       <CustomInput placeholder="Email" />
+      <View style={{marginTop: 16}}></View>
       <CustomInput placeholder="Full Name" />
+      <View style={{marginTop: 16}}></View>
       <CustomInput placeholder="Password" ıcon="true" />
+      <View style={{marginTop: 16}}></View>
       <CustomInput placeholder="Confirm Password" ıcon="true" />
-      <CustomButton title="SIGN UP" />
+      <View style={{marginTop: 24}}>
+        <CustomButton title="SIGN UP" />
+      </View>
       <View style={{justifyContent: 'center', flexDirection: 'row'}}>
         <Text style={styles.footerText}>Have an account? </Text>
         <TouchableOpacity onPress={() => props.navigation.navigate('SignIn')}>

@@ -18,7 +18,7 @@ const CustomInput = props => {
         onBlur={props.onBlur}
       />
       {props.ıcon && (
-        <TouchableOpacity>
+        <TouchableOpacity style={{zIndex: 2, position: 'absolute', right: 17}}>
           <Image
             style={styles.ıcon}
             source={require('../../../../assets/images/eye-off.png')}
@@ -31,7 +31,6 @@ const CustomInput = props => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    marginBottom: 16,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -42,11 +41,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     borderColor: theme.titleColor,
   },
-  ıcon: {
-    position: 'absolute',
-    zIndex: 2,
-    right: 17, //41
-  },
+  ıcon: {},
 });
 
 export default CustomInput;

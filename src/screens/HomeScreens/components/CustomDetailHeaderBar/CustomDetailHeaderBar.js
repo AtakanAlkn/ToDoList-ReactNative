@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import theme from '../../../../assets/theme/theme';
 
@@ -12,10 +12,10 @@ const CustomDetailHeaderBar = props => {
         <TouchableOpacity style={styles.button}>
           <Image source={require('../../../../assets/images/clock.png')} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={props.onEditIcon}>
           <Image source={require('../../../../assets/images/edit-2.png')} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={props.onTrashIcon}>
           <Image source={require('../../../../assets/images/trash-2.png')} />
         </TouchableOpacity>
       </View>
@@ -25,6 +25,7 @@ const CustomDetailHeaderBar = props => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 20,
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,16 +12,14 @@ import theme from '../../../../../assets/theme/theme';
 import CustomButton from '../CustomButton/CustomButton';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import {GlobalContext} from '../../../../../context/GlobalState';
 
-const CustomModal = props => {
+const CustomModalNew = props => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState();
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState();
 
-  const {data, setData, addVisible, setAddVisible} = useContext(GlobalContext);
   const onChangeTitle = text => {
     setTitle(text);
   };
@@ -31,20 +29,7 @@ const CustomModal = props => {
   };
 
   const onPress = () => {
-    if (title != '' && description != '') {
-      const Id = (data.length + 1).toString();
-      setAddVisible(false);
-      setData([
-        ...data,
-        {
-          id: Id,
-          text: title,
-          description: description,
-          date: date,
-          image: selectedImage,
-        },
-      ]);
-    }
+    props.onPress(title.toUpperCase(), description, date, selectedImage);
   };
 
   const onImagePicker = () => {
@@ -114,4 +99,4 @@ const CustomModal = props => {
     </View>
   );
 };
-export default CustomModal;
+export default CustomModalNew;

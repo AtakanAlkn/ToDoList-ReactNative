@@ -4,8 +4,19 @@ import theme from '../../../../../assets/theme/theme';
 
 const CustomButton = props => {
   return (
-    <TouchableOpacity style={styles.container} onPress={props.onPress}>
-      <Text style={styles.text}>{props.title}</Text>
+    <TouchableOpacity
+      style={{
+        ...styles.container,
+        backgroundColor: props.backgroundColor || 'white',
+      }}
+      onPress={props.onPress}>
+      <Text
+        style={{
+          ...styles.text,
+          color: props.color || theme.primaryColor,
+        }}>
+        {props.title}
+      </Text>
     </TouchableOpacity>
   );
 };

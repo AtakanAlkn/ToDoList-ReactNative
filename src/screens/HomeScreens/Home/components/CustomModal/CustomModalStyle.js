@@ -31,9 +31,22 @@ export default StyleSheet.create({
     borderRadius: 12,
     borderColor: 'white',
     paddingHorizontal: 16,
-
     marginBottom: 16,
     flex: 1,
     color: 'white',
+  },
+  calendarView: {
+    paddingVertical: 10,
+    paddingHorizontal: 40,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#F0F0F0',
+    marginBottom: 16,
+    flexDirection: 'row',
+  },
+  calendarText: {
+    color: '#F0F0F0',
+    fontFamily: theme.secondaryFont,
+    fontSize: 16,
   },
 });

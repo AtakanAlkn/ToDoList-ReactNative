@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {
   View,
   Text,
@@ -6,34 +6,59 @@ import {
   Image,
   FlatList,
   Modal,
+  SafeAreaView,
 } from 'react-native';
 import styles from './HomeStyle';
 import CustomModal from './components/CustomModal/CustomModal';
 import ToDoCard from './components/ToDoCard/ToDoCard';
+import {GlobalContext} from '../../../context/GlobalState';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = props => {
-  const [isVisible, setisVisible] = useState(false);
-  const [data, setData] = useState([]);
+  const {data, setData, addVisible, setAddVisible} = useContext(GlobalContext);
+  const [dateName, setDateName] = useState('Deadline (Optional)');
 
   const onNext = item => {
     props.navigation.navigate('Detail', {item});
   };
 
   const onAddToDo = () => {
-    setisVisible(true);
-  };
-
-  const onModalButton = (text, description) => {
-    const Id = (data.length + 1).toString();
-    setisVisible(false);
-    setData([...data, {id: Id, text: text, description: description}]);
+    setAddVisible(true);
   };
 
   const renderCard = ({item}) => {
     return <ToDoCard item={item} onNext={() => onNext(item)} />;
   };
+
+  const writeStorage = async () => {
+    try {
+      await AsyncStorage.setItem('todos', JSON.stringify(data)); // "todos" is the storage key
+    } catch (error) {
+      console.error('Error writing todos:', error);
+    }
+  };
+
+  const readStorage = async () => {
+    try {
+      const storedData = await AsyncStorage.getItem('todos');
+
+      if (storedData !== null) {
+        setData(JSON.parse(storedData));
+      }
+    } catch (error) {
+      console.error('Error reading todos:', error);
+    }
+  };
+
+  useEffect(() => {
+    readStorage(); // Load stored todos when the component mounts
+  }, []);
+
+  useEffect(() => {
+    writeStorage();
+  }, [readStorage]);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
         <Image source={require('../../../assets/images/Union.png')} />
         <Text style={styles.text}>LIST OF TODO</Text>
@@ -63,16 +88,22 @@ const Home = props => {
       <Modal
         animationType="slide"
         transparent={true}
-        visible={isVisible}
-        onRequestClose={() => setisVisible(false)}>
+        visible={addVisible}
+        onRequestClose={() => setAddVisible(false)}>
         <CustomModal
+          buttonTitle="ADD TODO"
           placeholder="Title"
           placeholder2="Description"
-          onPress={onModalButton}
+          deadline={dateName}
         />
       </Modal>
-      <FlatList data={data} renderItem={renderCard} />
-    </View>
+      <FlatList
+        keyExtractor={item => item.id.toString()}
+        data={data}
+        renderItem={renderCard}
+        showsVerticalScrollIndicator={false}
+      />
+    </SafeAreaView>
   );
 };
 

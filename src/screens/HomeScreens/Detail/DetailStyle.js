@@ -16,10 +16,20 @@ export default StyleSheet.create({
   },
   descriptionBox: {
     marginBottom: 20,
-    flex: 1,
   },
   description: {
     fontFamily: theme.secondaryFont,
     fontSize: 16,
+  },
+  image: {
+    marginVertical: 20,
+    height: 200,
+    width: '100%',
+  },
+  bottomBox: {
+    flex: 1,
+
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
 });

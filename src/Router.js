@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -7,12 +7,15 @@ import SignUp from './screens/LoginScreens/SignUp/SignUp';
 import Forgot from './screens/LoginScreens/Forgot/Forgot';
 import Home from './screens/HomeScreens/Home/Home';
 import Detail from './screens/HomeScreens/Detail/Detail';
+import Settings from './screens/HomeScreens/Settings/Settings';
 import CustomHeaderBar from './screens/HomeScreens/components/CustomHeaderBar/CustomHeaderBar';
 import CustomDetailHeaderBar from './screens/HomeScreens/components/CustomDetailHeaderBar/CustomDetailHeaderBar';
+import {GlobalContext} from './context/GlobalState';
 
 const Stack = createNativeStackNavigator();
 
 const Router = () => {
+  const {setVisible, setDeleteVisible} = useContext(GlobalContext);
   return (
     <NavigationContainer>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
@@ -35,7 +38,13 @@ const Router = () => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{header: () => <CustomHeaderBar />}}
+          options={{
+            header: ({navigation}) => (
+              <CustomHeaderBar
+                onSettings={() => navigation.navigate('Settings')}
+              />
+            ),
+          }}
         />
         <Stack.Screen
           name="Detail"
@@ -44,8 +53,17 @@ const Router = () => {
             header: ({navigation}) => (
               <CustomDetailHeaderBar
                 onBackIcon={() => navigation.navigate('Home')}
+                onEditIcon={() => setVisible(true)}
+                onTrashIcon={() => setDeleteVisible(true)}
               />
             ),
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            header: () => <CustomHeaderBar />,
           }}
         />
       </Stack.Navigator>

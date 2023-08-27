@@ -11,7 +11,9 @@ const Forgot = props => {
       <CustomHeader />
       <View style={{marginTop: 135}}>
         <CustomInput placeholder="Password" ıcon="true" />
+        <View style={{marginTop: 16}}></View>
         <CustomInput placeholder="Confirm Password" ıcon="true" />
+        <View style={{marginTop: 24}}></View>
         <CustomButton title="CHANGE PASSWORD" />
       </View>
     </ScrollView>
