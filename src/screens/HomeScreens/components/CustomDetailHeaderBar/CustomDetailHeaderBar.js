@@ -25,11 +25,11 @@ const CustomDetailHeaderBar = props => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.paddingHorizontal,
+    paddingTop: 20,
   },
   button: {
     marginLeft: 8,

@@ -22,6 +22,7 @@ export default StyleSheet.create({
     fontSize: 16,
   },
   image: {
+    resizeMode: 'contain',
     marginVertical: 20,
     height: 200,
     width: '100%',

@@ -20,10 +20,10 @@ const CustomHeaderBar = props => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
     backgroundColor: 'white',
     flexDirection: 'row',
     paddingHorizontal: theme.paddingHorizontal,
+    paddingTop: 20,
   },
   text: {
     color: theme.primaryColor,
