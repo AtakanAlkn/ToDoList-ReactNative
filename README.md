@@ -1,79 +1,99 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ToDoList Project
 
-# Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Overview
 
-## Step 1: Start the Metro Server
+Welcome to **ToDoList App**, a React Native application that helps you stay organized and keep track of your tasks, deadlines, and even add images to enhance your productivity!
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Project Preview
 
-To start Metro, run the following command from the _root_ of your React Native project:
+<div style="display: flex; flex-direction: row;">
+  <img src="images/h1.jpeg" alt="Home Screen" width="300" style="margin-right: 20px;">
+  <img src="images/h2.jpeg" alt="Library Screen" width="300" style="margin-right: 20px;">
+  <img src="images/h3.jpeg" alt="Search Screen" width="300">
+</div>
 
-```bash
-# using npm
-npm start
+## Design Notice
 
-# OR using Yarn
-yarn start
-```
+The app's design was created using Figma, a collaborative design tool that enables designers and developers to work together seamlessly. 
+You can check out the complete design and layout of the app by visiting the [Figma](https://www.figma.com/community/file/1052832340031141040)
 
-## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Features
 
-### For Android
+- Create tasks with due dates.
+- Add images to your tasks for better visualization.
+- Edit and update tasks as needed.
+- Delete tasks when they're completed or no longer needed.
+- Changes are automatically saved to the device's memory.
 
-```bash
-# using npm
-npm run android
+## Technologies Used
 
-# OR using Yarn
-yarn android
-```
+This project is built using the following technologies and packages:
 
-### For iOS
+- React Native: A popular JavaScript framework for building native mobile apps.
+- React Context: Used for managing global state, making data sharing between components seamless.
+- AsyncStorage: Enables data persistence, ensuring your tasks are saved even after closing the app.
+- Image Picker: Allows you to choose images from your device's gallery or camera to associate with tasks.
 
-```bash
-# using npm
-npm run ios
+## Getting Started
 
-# OR using Yarn
-yarn ios
-```
+To run this project locally, follow these steps:
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+1. **Clone the repository:**
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+   ```bash
+   git clone https://github.com/AtakanAlkn/ToDoList-ReactNative.git
 
-## Step 3: Modifying your App
+   
+2. **Navigate to the project directory:**
+   
+   cd ToDoList-ReactNative
 
-Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+2. **Install dependencies:**
+   
+   npm install
+   or
+   yarn install
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
-## Congratulations! :tada:
+3. **Start the development server:**
 
-You've successfully run and modified your React Native App. :partying_face:
+   npm start
+   or
+   yarn start
 
-### Now what?
+   
+4. **Run on iOS or Android:**
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+   To run the app on iOS or Android simulators/emulators, use the following commands respectively:
 
-# Troubleshooting
+   npm run ios
+   npm run android
+   or
+   yarn ios
+   yarn android
+   
+**Congratulations!**
+You've successfully set up and started the project locally. Feel free to explore the code, make changes, and test new features.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+**Troubleshooting**
+If you encounter any issues during the setup process or while running the app, consider the following steps:
 
-# Learn More
+Double-check that you've correctly configured your environment variables in the .env file.
+Ensure you have Node.js and npm (or yarn) installed on your system.
+Make sure you have Xcode (for iOS development) or Android Studio (for Android development) properly set up.
+Clear the npm or yarn cache and node_modules directory, then run the installation step again.
+If the problem persists, please open an issue on our GitHub repository. We'll be glad to assist you!
 
-To learn more about React Native, take a look at the following resources:
+## License
+This repository is licensed under the [MIT License](LICENSE).
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Contact
+If you have any questions, suggestions, or just want to connect, you can reach me at:
+- Email: alkan.atakan@outlook.com
+- LinkedIn: [Atakan Alkan](https://www.linkedin.com/in/atakanalkn/)
+
+
+
