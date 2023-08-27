@@ -20,7 +20,7 @@ Welcome to **ToDoList App**, a React Native application that helps you stay orga
   
   <div style="display: flex; flex-direction: row;">
     <img src="images/h5.jpeg" alt="Detail Delete" width="300">
-    <img src="images/m1.gif" alt="GIF" width="300" style="margin-right: 20;justify-content: center;">
+    <img src="images/m3.gif" alt="GIF" width="300" style="margin-right: 20;justify-content: center;">
   </div>
 
 
