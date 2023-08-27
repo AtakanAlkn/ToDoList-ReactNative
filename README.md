@@ -28,7 +28,7 @@ Welcome to **ToDoList App**, a React Native application that helps you stay orga
 ## Design Notice
 
 The app's design was created using Figma, a collaborative design tool that enables designers and developers to work together seamlessly. 
-You can check out the complete design and layout of the app by visiting the [Figma](https://www.figma.com/community/file/1052832340031141040)
+You can check out the complete design and layout of the app by visiting the [Figma](https://www.figma.com/community/file/1015172216261307231/Learn-UIUX-%3A-To-Do-List-App)
 
 
 ## Features
