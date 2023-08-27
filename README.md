@@ -7,15 +7,27 @@ Welcome to **ToDoList App**, a React Native application that helps you stay orga
 
 ## Project Preview
 
-
-<div style="display: flex; flex-direction: row;">
-    <img src="images/h3.jpeg" alt="Login Screen" width="300">
+<div style="display: flex; justify-content: center;">
+  <div style="display: flex; flex-direction: row; margin-bottom: 20px;">
+    <img src="images/h3.jpeg" alt="Login Screen" width="300" style="margin-right: 20px;">
     <img src="images/h1.jpeg" alt="ToDo Screen" width="300">
-</div>
-<div style="display: flex; flex-direction: row;"> 
-    <img src="images/h2.jpeg" alt="Add ToDo Screen" width="300">
+  </div>
+  
+  <div style="display: flex; flex-direction: row; margin-bottom: 20px;"> 
+    <img src="images/h2.jpeg" alt="Add ToDo Screen" width="300" style="margin-right: 20px;">
     <img src="images/h4.jpeg" alt="Detail Screen" width="300">
+  </div>
+  
+  <div style="display: flex; flex-direction: row; margin-bottom: 20px;">
+    <img src="images/h5.jpeg" alt="Detail Delete" width="300">
+  </div>
+  
+  <div style="display: flex; flex-direction: row;">
+    <img src="images/m1.gif" alt="GIF" width="300" style="margin-right: 20px;">
+    <img src="images/m3.gif" alt="GIF" width="300">
+  </div>
 </div>
+
 
 ## Design Notice
 
