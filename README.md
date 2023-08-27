@@ -9,14 +9,10 @@ Welcome to **ToDoList App**, a React Native application that helps you stay orga
 
 
 <div style="display: flex; flex-direction: row;">
-  <div>
-    <p align="center"><em>Login Screen</em></p>
+  
     <img src="images/h3.jpeg" alt="Login Screen" width="300">
-  </div>
-  <div>
-    <p align="center"><em>ToDo Screen</em></p>
     <img src="images/h1.jpeg" alt="ToDo Screen" width="300">
-  </div>
+
 </div>
 
 ## Design Notice
