@@ -23,9 +23,8 @@ Welcome to **ToDoList App**, a React Native application that helps you stay orga
   </div>
 </div>
 
-<div style="display: flex; justify-content: center; margin-top: 20px;">
-  <img src="images/m1.gif" alt="GIF" width="300" style="margin-right: 20px;">
-  <img src="images/m3.gif" alt="GIF" width="300">
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="images/m1.gif" alt="GIF" width="300" style="margin-right: 20px;justify-content: center;">
 </div>
 
 
