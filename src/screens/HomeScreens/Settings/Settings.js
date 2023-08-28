@@ -9,7 +9,7 @@ const Settings = () => {
     <View style={styles.container}>
       <View>
         <Image
-          style={{marginBottom: 185}}
+          style={{marginBottom: 140}}
           source={require('../../../assets/images/logo.png')}
         />
       </View>
@@ -19,7 +19,7 @@ const Settings = () => {
       </View>
       <View style={styles.textBox}>
         <Text style={styles.text}>Email</Text>
-        <Text style={styles.text2}>atakan.alkan29@gmail.com</Text>
+        <Text style={styles.text2}>alkan.atakan@outlook.com</Text>
       </View>
       <View style={styles.textBox}>
         <Text style={styles.text}>Password</Text>

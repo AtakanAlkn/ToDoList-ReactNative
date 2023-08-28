@@ -12,16 +12,15 @@ const Detail = ({route, navigation}) => {
   const {item} = route.params;
 
   const onModalButton = (text2, description2, date2, selectedImage2) => {
+    const editIndex = data.findIndex(object => object.id === item.id);
     const newData = [...data]; // Mevcut veriyi kopyala
-    // İlgili indeksteki öğeyi güncelle
-    newData[item.id - 1] = {
-      ...newData[item.id - 1],
+    newData[editIndex] = {
+      ...newData[editIndex],
       text: text2 ? text2 : item.text,
       description: description2 ? description2 : item.description,
-      date: date2 ? date2 : data[item.id - 1].date,
-      image: selectedImage2 ? selectedImage2 : data[item.id - 1].image,
+      date: date2 ? date2 : null,
+      image: selectedImage2 ? selectedImage2 : null,
     };
-
     setData(newData); // Güncellenmiş veriyi kaydet
     setVisible(false);
     navigation.navigate('Home');
@@ -78,7 +77,7 @@ const Detail = ({route, navigation}) => {
       </View>
       <View style={styles.bottomBox}>
         {newDate === '' ? null : (
-          <Text style={styles.date}>Created at {newDate}</Text>
+          <Text style={styles.date}>Deadline: {newDate}</Text>
         )}
       </View>
       <Modal
@@ -104,8 +103,9 @@ const Detail = ({route, navigation}) => {
         <CustomDeleteModal
           onCancelButton={() => setDeleteVisible(false)}
           onDeleteButton={() => {
-            data.splice(data[item.id - 1], 1);
-            setData([...data]);
+            const deleteIndex = data.findIndex(object => object.id === item.id);
+            data.splice(deleteIndex, 1);
+            setData(data);
             navigation.navigate('Home');
             setDeleteVisible(false);
           }}

@@ -13,6 +13,8 @@ import CustomButton from '../CustomButton/CustomButton';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {GlobalContext} from '../../../../../context/GlobalState';
+import uuid from 'react-native-uuid';
+import Icon from 'react-native-vector-icons';
 
 const CustomModal = props => {
   const [title, setTitle] = useState('');
@@ -32,13 +34,13 @@ const CustomModal = props => {
 
   const onPress = () => {
     if (title != '' && description != '') {
-      const Id = (data.length + 1).toString();
+      const Id = uuid.v4();
       setAddVisible(false);
       setData([
         ...data,
         {
           id: Id,
-          text: title,
+          text: title.toUpperCase(),
           description: description,
           date: date,
           image: selectedImage,
@@ -55,9 +57,47 @@ const CustomModal = props => {
     };
 
     launchImageLibrary(options, response => {
-      setSelectedImage(response.assets[0].uri);
+      if (response && response.assets && response.assets.length > 0) {
+        setSelectedImage(response.assets[0].uri);
+      }
     });
   };
+
+  const getMonthName = month => {
+    switch (month) {
+      case 1:
+        return 'January';
+      case 2:
+        return 'February';
+      case 3:
+        return 'March';
+      case 4:
+        return 'April';
+      case 5:
+        return 'May';
+      case 6:
+        return 'June';
+      case 7:
+        return 'July';
+      case 8:
+        return 'August';
+      case 9:
+        return 'September';
+      case 10:
+        return 'October';
+      case 11:
+        return 'November';
+      case 12:
+        return 'December';
+      default:
+        return 'Invalid Month';
+    }
+  };
+
+  let newDate = 'Deadline (Optional)';
+  if (date) {
+    newDate = `${date.day} ${getMonthName(date.month)} ${date.year}`;
+  }
 
   return (
     <View style={styles.container}>
@@ -81,7 +121,7 @@ const CustomModal = props => {
 
       <TouchableWithoutFeedback onPress={() => setShowModal(true)}>
         <View style={styles.calendarView}>
-          <Text style={styles.calendarText}>{props.deadline}</Text>
+          <Text style={styles.calendarText}>{newDate}</Text>
           <View style={{flex: 1, alignItems: 'flex-end'}}>
             <Image
               source={require('../../../../../assets/images/calendar.png')}

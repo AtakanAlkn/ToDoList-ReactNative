@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import theme from '../../../../assets/theme/theme';
+import Icon from 'react-native-vector-icons/Feather';
 
 const CustomInput = props => {
   return (
@@ -16,13 +17,13 @@ const CustomInput = props => {
         placeholder={props.placeholder}
         onFocus={props.onPressIn}
         onBlur={props.onBlur}
+        secureTextEntry={props.secureTextEntry}
       />
       {props.ıcon && (
-        <TouchableOpacity style={{zIndex: 2, position: 'absolute', right: 17}}>
-          <Image
-            style={styles.ıcon}
-            source={require('../../../../assets/images/eye-off.png')}
-          />
+        <TouchableOpacity
+          style={{zIndex: 2, position: 'absolute', right: 17}}
+          onPress={props.onVisible}>
+          <Icon name="eye-off" size={24} />
         </TouchableOpacity>
       )}
     </View>

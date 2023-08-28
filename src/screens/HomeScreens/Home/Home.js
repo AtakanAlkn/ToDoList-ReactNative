@@ -13,10 +13,12 @@ import CustomModal from './components/CustomModal/CustomModal';
 import ToDoCard from './components/ToDoCard/ToDoCard';
 import {GlobalContext} from '../../../context/GlobalState';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import theme from '../../../assets/theme/theme';
+import Icon from 'react-native-vector-icons/Feather';
 
 const Home = props => {
   const {data, setData, addVisible, setAddVisible} = useContext(GlobalContext);
-  const [dateName, setDateName] = useState('Deadline (Optional)');
+  const [filterCheck, setFilterCheck] = useState(false);
 
   const onNext = item => {
     props.navigation.navigate('Detail', {item});
@@ -57,13 +59,31 @@ const Home = props => {
   useEffect(() => {
     writeStorage();
   }, [readStorage]);
+
+  const onFilter = () => {
+    const hasDateData = data.filter(item => item.date && item.date.timestamp);
+    const noDateData = data.filter(item => !item.date || !item.date.timestamp);
+
+    if (filterCheck) {
+      hasDateData.sort((a, b) => a.date.timestamp - b.date.timestamp);
+      setData([...hasDateData, ...noDateData]);
+      setFilterCheck(false);
+    } else {
+      hasDateData.sort((a, b) => b.date.timestamp - a.date.timestamp);
+      setData([...hasDateData, ...noDateData]);
+      setFilterCheck(true);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
         <Image source={require('../../../assets/images/Union.png')} />
         <Text style={styles.text}>LIST OF TODO</Text>
         <View style={{flex: 1, alignItems: 'flex-end'}}>
-          <Image source={require('../../../assets/images/filter.png')} />
+          <TouchableOpacity onPress={onFilter}>
+            <Icon name="filter" size={24} color={theme.secondaryColor} />
+          </TouchableOpacity>
         </View>
       </View>
       <View
@@ -94,7 +114,6 @@ const Home = props => {
           buttonTitle="ADD TODO"
           placeholder="Title"
           placeholder2="Description"
-          deadline={dateName}
         />
       </Modal>
       <FlatList

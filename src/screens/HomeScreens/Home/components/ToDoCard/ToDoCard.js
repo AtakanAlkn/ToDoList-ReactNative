@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   View,
   Text,
@@ -7,10 +7,14 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import theme from '../../../../../assets/theme/theme';
+import {GlobalContext} from '../../../../../context/GlobalState';
 
 const ToDoCard = ({item, onNext}) => {
+  const {data} = useContext(GlobalContext);
+
   const colors = () => {
-    return item.id % 2 === 0 ? true : false;
+    const colorId = data.findIndex(object => object.id === item.id);
+    return colorId % 2 === 1 ? true : false;
   };
 
   const getMonthName = month => {
@@ -57,7 +61,7 @@ const ToDoCard = ({item, onNext}) => {
         </Text>
         {item.date ? (
           <Text style={styles.date}>
-            Created at {item.date.day} {getMonthName(item.date.month)}{' '}
+            Deadline: {item.date.day} {getMonthName(item.date.month)}{' '}
             {item.date.year}
           </Text>
         ) : null}

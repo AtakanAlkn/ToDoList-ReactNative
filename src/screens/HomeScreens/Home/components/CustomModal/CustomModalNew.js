@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -12,13 +12,16 @@ import theme from '../../../../../assets/theme/theme';
 import CustomButton from '../CustomButton/CustomButton';
 import {Calendar, LocaleConfig} from 'react-native-calendars';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {GlobalContext} from '../../../../../context/GlobalState';
 
 const CustomModalNew = props => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(props.deadline);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState();
+  const [deadLine, setDeadLine] = useState();
+  const {data, setData} = useContext(GlobalContext);
 
   const onChangeTitle = text => {
     setTitle(text);
@@ -29,7 +32,7 @@ const CustomModalNew = props => {
   };
 
   const onPress = () => {
-    props.onPress(title.toUpperCase(), description, date, selectedImage);
+    props.onPress(title.toUpperCase(), description, deadLine, selectedImage);
   };
 
   const onImagePicker = () => {
@@ -40,9 +43,52 @@ const CustomModalNew = props => {
     };
 
     launchImageLibrary(options, response => {
-      setSelectedImage(response.assets[0].uri);
+      if (response && response.assets && response.assets.length > 0) {
+        setSelectedImage(response.assets[0].uri);
+      }
+      {
+        setSelectedImage('');
+      }
     });
   };
+
+  const getMonthName = month => {
+    switch (month) {
+      case 1:
+        return 'January';
+      case 2:
+        return 'February';
+      case 3:
+        return 'March';
+      case 4:
+        return 'April';
+      case 5:
+        return 'May';
+      case 6:
+        return 'June';
+      case 7:
+        return 'July';
+      case 8:
+        return 'August';
+      case 9:
+        return 'September';
+      case 10:
+        return 'October';
+      case 11:
+        return 'November';
+      case 12:
+        return 'December';
+      default:
+        return 'Invalid Month';
+    }
+  };
+
+  let newDate = props.deadline;
+  if (deadLine) {
+    newDate = `${deadLine.day} ${getMonthName(deadLine.month)} ${
+      deadLine.year
+    }`;
+  }
 
   return (
     <View style={styles.container}>
@@ -66,7 +112,7 @@ const CustomModalNew = props => {
 
       <TouchableWithoutFeedback onPress={() => setShowModal(true)}>
         <View style={styles.calendarView}>
-          <Text style={styles.calendarText}>{props.deadline}</Text>
+          <Text style={styles.calendarText}>{newDate}</Text>
           <View style={{flex: 1, alignItems: 'flex-end'}}>
             <Image
               source={require('../../../../../assets/images/calendar.png')}
@@ -91,7 +137,7 @@ const CustomModalNew = props => {
         <Calendar
           style={{borderRadius: 20, elevation: 4, margin: 40, marginTop: 200}}
           onDayPress={day => {
-            setDate(day);
+            setDeadLine(day);
             setShowModal(false);
           }}
         />

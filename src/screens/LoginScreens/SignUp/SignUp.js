@@ -6,6 +6,8 @@ import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
 const SignUp = props => {
+  const [visibleText, setVisibleText] = useState(true);
+  const [visibleText2, setVisibleText2] = useState(true);
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -36,9 +38,19 @@ const SignUp = props => {
       <View style={{marginTop: 16}}></View>
       <CustomInput placeholder="Full Name" />
       <View style={{marginTop: 16}}></View>
-      <CustomInput placeholder="Password" ıcon="true" />
+      <CustomInput
+        placeholder="Password"
+        ıcon="true"
+        secureTextEntry={visibleText}
+        onVisible={() => setVisibleText(!visibleText)}
+      />
       <View style={{marginTop: 16}}></View>
-      <CustomInput placeholder="Confirm Password" ıcon="true" />
+      <CustomInput
+        placeholder="Confirm Password"
+        ıcon="true"
+        secureTextEntry={visibleText2}
+        onVisible={() => setVisibleText2(!visibleText2)}
+      />
       <View style={{marginTop: 24}}>
         <CustomButton title="SIGN UP" />
       </View>

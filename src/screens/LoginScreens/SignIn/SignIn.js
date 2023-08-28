@@ -6,13 +6,19 @@ import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
 const SignIn = props => {
+  const [visibleText, setVisibleText] = React.useState(true);
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <CustomHeader />
       <View style={{marginTop: 98}}>
         <CustomInput placeholder="Email" />
         <View style={{marginTop: 16}}></View>
-        <CustomInput placeholder="Password" ıcon="true" />
+        <CustomInput
+          placeholder="Password"
+          ıcon="true"
+          secureTextEntry={visibleText}
+          onVisible={() => setVisibleText(!visibleText)}
+        />
         <View style={{marginTop: 16}}></View>
         <View style={{alignItems: 'flex-end'}}>
           <TouchableOpacity onPress={() => props.navigation.navigate('Forgat')}>

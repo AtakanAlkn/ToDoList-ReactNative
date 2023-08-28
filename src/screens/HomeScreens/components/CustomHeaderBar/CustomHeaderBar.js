@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import theme from '../../../../assets/theme/theme';
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 const CustomHeaderBar = props => {
   return (
@@ -8,10 +9,7 @@ const CustomHeaderBar = props => {
       <Text style={styles.text}>TO DO LIST</Text>
       <View style={{flex: 1, alignItems: 'flex-end'}}>
         <TouchableOpacity onPress={props.onSettings}>
-          <Image
-            style={styles.image}
-            source={require('../../../../assets/images/settings.png')}
-          />
+          <Icon name="gear" size={30} />
         </TouchableOpacity>
       </View>
     </View>
@@ -24,13 +22,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: theme.paddingHorizontal,
     paddingTop: 20,
+    alignItems: 'center',
   },
   text: {
     color: theme.primaryColor,
     fontFamily: theme.primaryFont,
-    fontSize: 24,
+    fontSize: 30,
   },
-  image: {},
 });
 
 export default CustomHeaderBar;

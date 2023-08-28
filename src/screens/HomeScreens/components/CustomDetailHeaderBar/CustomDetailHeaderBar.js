@@ -1,22 +1,25 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import theme from '../../../../assets/theme/theme';
+import Icon from 'react-native-vector-icons/Feather';
 
 const CustomDetailHeaderBar = props => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={props.onBackIcon}>
-        <Image source={require('../../../../assets/images/chevron.png')} />
+        <Icon name="chevron-left" size={24} />
       </TouchableOpacity>
       <View style={styles.innerContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Image source={require('../../../../assets/images/clock.png')} />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => props.onClockIcon()}>
+          <Icon name="clock" size={24} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={props.onEditIcon}>
-          <Image source={require('../../../../assets/images/edit-2.png')} />
+          <Icon name="edit-2" size={24} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={props.onTrashIcon}>
-          <Image source={require('../../../../assets/images/trash-2.png')} />
+          <Icon name="trash-2" size={24} />
         </TouchableOpacity>
       </View>
     </View>

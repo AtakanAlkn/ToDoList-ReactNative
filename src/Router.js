@@ -55,6 +55,7 @@ const Router = () => {
                 onBackIcon={() => navigation.navigate('Home')}
                 onEditIcon={() => setVisible(true)}
                 onTrashIcon={() => setDeleteVisible(true)}
+                onClockIcon={() => console.log('Clock')}
               />
             ),
           }}
@@ -63,7 +64,7 @@ const Router = () => {
           name="Settings"
           component={Settings}
           options={{
-            header: () => <CustomHeaderBar />,
+            header: () => <CustomHeaderBar onSettings={null} />,
           }}
         />
       </Stack.Navigator>
