@@ -1,31 +1,31 @@
 # ToDoList Project
 
-
 ## Overview
 
 Welcome to **ToDoList App**, a React Native application that helps you stay organized and keep track of your tasks, deadlines, and even add images to enhance your productivity!
 
 ## Project Preview
 
-<div style="display: flex; flex-direction: row;">
-  <div>
-    <p align="center"><em>Login Screen</em></p>
-    <img src="images/h3.jpeg" alt="Login Screen" width="300">
-  </div>
-  <div>
-      <p align="center"><em>ToDo Screen</em></p>
+<div style="display: flex; flex-direction: row; justify-content: center;">
+  <div style="display: flex; flex-direction: row; margin-right: 20;">
+    <img src="images/h3.jpeg" alt="Login Screen" width="300" style="margin-right: 200;">
     <img src="images/h1.jpeg" alt="ToDo Screen" width="300">
   </div>
-  <div>
-    <p align="center"><em>Add ToDo Screen</em></p>
-    <img src="images/h2.jpeg" alt="Add ToDo Screen" width="300">
+  
+  <div style="display: flex; flex-direction: row; margin-right: 20px;"> 
+    <img src="images/h2.jpeg" alt="Add ToDo Screen" width="300" style="margin-right: 200;">
+    <img src="images/h4.jpeg" alt="Detail Screen" width="300">
   </div>
-</div>
+  
+  <div style="display: flex; flex-direction: row;">
+    <img src="images/h5.jpeg" alt="Detail Delete" width="300">
+    <img src="images/m3.gif" alt="GIF" width="300" style="margin-right: 20;justify-content: center;">
+  </div>
+
 ## Design Notice
 
-The app's design was created using Figma, a collaborative design tool that enables designers and developers to work together seamlessly. 
-You can check out the complete design and layout of the app by visiting the [Figma](https://www.figma.com/community/file/1052832340031141040)
-
+The app's design was created using Figma, a collaborative design tool that enables designers and developers to work together seamlessly.
+You can check out the complete design and layout of the app by visiting the [Figma](https://www.figma.com/community/file/1015172216261307231/Learn-UIUX-%3A-To-Do-List-App)
 
 ## Features
 
@@ -53,27 +53,26 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/AtakanAlkn/ToDoList-ReactNative.git
 
-   
+
+   ```
+
 2. **Navigate to the project directory:**
-   
+
    cd ToDoList-ReactNative
 
+3. **Install dependencies:**
 
-2. **Install dependencies:**
-   
    npm install
    or
    yarn install
 
-
-3. **Start the development server:**
+4. **Start the development server:**
 
    npm start
    or
    yarn start
 
-   
-4. **Run on iOS or Android:**
+5. **Run on iOS or Android:**
 
    To run the app on iOS or Android simulators/emulators, use the following commands respectively:
 
@@ -82,7 +81,7 @@ To run this project locally, follow these steps:
    or
    yarn ios
    yarn android
-   
+
 **Congratulations!**
 You've successfully set up and started the project locally. Feel free to explore the code, make changes, and test new features.
 
@@ -96,12 +95,12 @@ Clear the npm or yarn cache and node_modules directory, then run the installatio
 If the problem persists, please open an issue on our GitHub repository. We'll be glad to assist you!
 
 ## License
+
 This repository is licensed under the [MIT License](LICENSE).
 
 ## Contact
+
 If you have any questions, suggestions, or just want to connect, you can reach me at:
+
 - Email: alkan.atakan@outlook.com
 - LinkedIn: [Atakan Alkan](https://www.linkedin.com/in/atakanalkn/)
-
-
-
